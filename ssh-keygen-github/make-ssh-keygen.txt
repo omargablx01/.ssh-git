@@ -1,0 +1,33 @@
+علشان تعمل ssh-keygen مع تحديد مساره باستخدام -f
+
+make ssh-keygen => ssh-keygen -t rsa -b 4096 -C "o.ashraf.gabl@" -f "C:\Users\NTFSv6/.ssh/id_rsa_o_ashraf_gabal"
+----------------------------------------------------------
+بتقدر تحدد ال rsa بتاعك بهذا الشكل ودا بيكون بداخل ملف ال ( .ssh )
+
+make file config => 
+Host github-o_ashraf_gabl.com
+   HostName github.com
+   User git
+   IdentityFile ~/.ssh/id_rsa_o_ashraf_gabal
+
+نفس الكلام لو هتضيف واحد تاني
+----------------------------------------------------------
+لازم تدخل في ملف ال ( .ssh ) علشان تعرف تعمل عمليه تاكيد ان ال rsa شغال وتم ربطه بال github
+وقبل الخطوة دي لازم تربط ال ssh الي عملنا بال github
+
+cd c:\Users\NTFSv6/.ssh
+cmder command => ssh -T git@github-o_ashraf_gabl -F config
+Done > Hi omargablx01! You've successfully authenticated, but GitHub does not provide shell access.
+failed > ssh: Could not resolve hostname github-o_ashraf_gabl: No such host is known
+----------------------------------------------------------
+علشان نشغل ال rsa key لازم نعمل الامر التالي
+
+git config core.sshCommand "ssh -i C:/Users/NTFSv6/.ssh/id_rsa_o_ashraf_gabal"
+----------------------------------------------------------
+لمه اجي اعمل git clone ل repo معين 
+
+بدل > git@github.com:omargablx01/.ssh-git.git
+
+هنخلي كدا > git clone git@github-o_ashraf_gabl.com:omargablx01/.ssh-git.git
+
+ودا هو ال Host الي حطيته في ال config file
