@@ -1,0 +1,19 @@
+بعد حذف الملف من ال local عندك
+وتكتب امر 
+$ git status
+
+هيظهرلك التالي 
+deleted:    test.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+علشان تمسحه من ال المشروع .. remote 
+$ git add test.txt
+
+بعد كدا تعمله commit
+$ git commit -m "Delete test File Frm Remote Project"
+
+بعد كدا تعمله push 
+$ git push origin main
+
+كدا تم حذف الملف من المشروع ومن ال local عندك بشكل سليم
